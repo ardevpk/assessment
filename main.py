@@ -3,8 +3,8 @@ import pandas as pd
 import seaborn as sns
 
 # Load NHANES cholesterol and demographics data (XPT format)
-tchol = pd.read_sas("TCHOL_L.XPT")
-demo = pd.read_sas("DEMO_L.XPT")
+tchol = pd.read_sas("data/tchol.xpt")
+demo = pd.read_sas("data/demo.xpt")
 
 # Merge datasets on unique respondent ID
 df = pd.merge(tchol, demo, on="SEQN")
@@ -35,3 +35,4 @@ plt.ylabel("Number of Individuals")
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+plt.savefig("cholesterol_distribution.png")
